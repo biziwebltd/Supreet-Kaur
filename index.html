@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supreet Kaur | UX/UI Designer & Web Developer</title>
+  <meta name="description" content="Portfolio of Supreet Kaur, UX/UI Designer, Web Developer, and Digital Marketing Lead." />
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #111111;
+      --muted: #6f6f6f;
+      --line: #e8e8e8;
+      --soft: #f2f2f2;
+      --card: #ffffff;
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250, 250, 250, .82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 116px 0 96px;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 26px;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin: 0;
+      font-size: clamp(46px, 8vw, 104px);
+      line-height: .94;
+      letter-spacing: -.075em;
+      font-weight: 760;
+    }
+
+    .hero-text {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 52px;
+      align-items: end;
+      margin-top: 34px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-text p {
+      margin: 0;
+      color: #2c2c2c;
+      font-size: 20px;
+      max-width: 680px;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--text);
+      font-size: 14px;
+      font-weight: 650;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-dark { background: var(--text); color: #fff; }
+    .btn-light { background: transparent; color: var(--text); }
+
+    section {
+      padding: 78px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      margin-bottom: 34px;
+    }
+
+    .section-label {
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -.05em;
+      font-weight: 720;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+    }
+
+    .about-copy {
+      max-width: 820px;
+      font-size: 20px;
+      color: #2d2d2d;
+    }
+
+    .about-copy p { margin: 0 0 22px; }
+    .about-copy p:last-child { margin-bottom: 0; }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 36px;
+    }
+
+    .highlight {
+      background: var(--card);
+      padding: 24px;
+      min-height: 136px;
+      display: flex;
+      align-items: end;
+      font-weight: 650;
+      letter-spacing: -.02em;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: -8px 0 28px 288px;
+    }
+
+    .filter-btn {
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 15px;
+      font: inherit;
+      font-size: 14px;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card.hide { display: none; }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: #c7c7c7;
+      box-shadow: 0 18px 42px rgba(0,0,0,.07);
+    }
+
+    .thumb {
+      aspect-ratio: 16 / 10;
+      background: var(--soft);
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: saturate(.92);
+      transition: transform .35s ease;
+    }
+
+    .project-card:hover .thumb img { transform: scale(1.035); }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+
+    .project-content p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .visit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 18px;
+      font-size: 19px;
+      letter-spacing: -.03em;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: var(--soft);
+      color: #333;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 13px;
+    }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+      gap: 1px;
+    }
+
+    .step {
+      background: var(--card);
+      padding: 28px 18px;
+      color: #222;
+      font-weight: 650;
+      text-align: center;
+    }
+
+    .contact-card {
+      background: #111;
+      color: #fff;
+      border-radius: 28px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+    }
+
+    .contact-card p {
+      margin: 16px 0 0;
+      color: #cfcfcf;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .contact-card .btn { border-color: #fff; }
+    .contact-card .btn-dark { background: #fff; color: #111; }
+    .contact-card .btn-light { color: #fff; }
+
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding: 86px 0 70px; }
+      .hero-text, .section-head, .about-grid, .contact-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .cta-row, .contact-actions { justify-content: flex-start; }
+      .filter-row { margin-left: 0; }
+      .project-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
+      .highlights { grid-template-columns: 1fr 1fr; }
+      .process-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .nav-links { display: none; }
+      .project-grid, .skills-grid, .highlights, .process-row { grid-template-columns: 1fr; }
+      .contact-card { padding: 30px; border-radius: 22px; }
+      .hero-text p, .about-copy { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Supreet Kaur</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="intro">UX/UI Designer · Web Developer · Digital & Marketing Lead</div>
+        <h1>Designing clean digital experiences with strategy, code, and measurable impact.</h1>
+        <div class="hero-text">
+          <p>I design, build, and optimise websites and digital products across UX/UI, front-end development, Shopify, WordPress, CRM integrations, and growth marketing.</p>
+          <div class="cta-row">
+            <a class="btn btn-dark" href="#projects">View Projects</a>
+            <a class="btn btn-light" href="Supreet-Kaur-CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">About</div>
+          <h2>Multidisciplinary digital professional focused on useful, scalable, conversion-led design.</h2>
+        </div>
+        <div class="about-grid">
+          <div></div>
+          <div>
+            <div class="about-copy">
+              <p>I work across UX/UI design, front-end development, and digital marketing leadership. As a Marketing Head, I manage cross-functional teams across SEO, development, and design while delivering high-performing digital products.</p>
+              <p>My work combines visual design, technical implementation, automation, third-party integrations, and user-focused thinking to create experiences that support both business goals and customer needs.</p>
+            </div>
+            <div class="highlights">
+              <div class="highlight">Led SEO, design, and development teams</div>
+              <div class="highlight">Built Shopify and WordPress websites</div>
+              <div class="highlight">Delivered CRM and automation integrations</div>
+              <div class="highlight">Managed PPC, email, LinkedIn, and WhatsApp campaigns</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Selected Work</div>
+          <h2>Live websites, brand systems, UX improvements, and platform builds.</h2>
+        </div>
+
+        <div class="filter-row" aria-label="Project filters">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="shopify">Shopify</button>
+          <button class="filter-btn" type="button" data-filter="wordpress">WordPress</button>
+          <button class="filter-btn" type="button" data-filter="php">PHP</button>
+          <button class="filter-btn" type="button" data-filter="other">Other</button>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card" data-category="other" href="https://su.buckingham.ac.uk/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/buckingham-su.jpg" alt="University of Buckingham Students' Union website thumbnail"></div>
+            <div class="project-content"><h3>University of Buckingham Students' Union</h3><p>Logo, theme, colour palette, UI/UX, JavaScript, HTML, CSS, website design and development.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="wordpress" href="https://dastaarwalecaterers.co.uk/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/dastaar-wale-caterers.jpg" alt="Dastaar Wale Caterers website thumbnail"></div>
+            <div class="project-content"><h3>Dastaar Wale Caterers</h3><p>Logo, theme, colour palette, UI/UX, graphics, WordPress, and Bootstrap implementation.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="php" href="https://uklearningsolutions.co.uk/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/uk-learning-solutions.jpg" alt="UK Learning Solutions website thumbnail"></div>
+            <div class="project-content"><h3>UK Learning Solutions</h3><p>Logo, theme, colour palette, UI/UX, graphics, CRM integration, and PHP development.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="php" href="https://soulandmind.org/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/soul-and-mind.jpg" alt="Soul and Mind website thumbnail"></div>
+            <div class="project-content"><h3>Soul and Mind</h3><p>Logo, theme, colour palette, UI/UX, graphics, CRM integration, and PHP development.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="shopify" href="https://gadgetology.co.uk/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/gadgetology.jpg" alt="Gadgetology website thumbnail"></div>
+            <div class="project-content"><h3>Gadgetology</h3><p>Logo, theme, colour palette, UI/UX, graphics, and Shopify store design.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="wordpress" href="https://staging.positive-change.org/staging/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/positive-change.jpg" alt="Positive Change website thumbnail"></div>
+            <div class="project-content"><h3>Positive Change</h3><p>Charity website with UI/UX, graphics, WordPress, Bootstrap, and CRM integration.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="wordpress" href="https://singhsabhaslough.org/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/singh-sabha-slough.jpg" alt="Singh Sabha Slough website thumbnail"></div>
+            <div class="project-content"><h3>Singh Sabha Slough</h3><p>Charity website with logo, theme, UI/UX, graphics, WordPress, Bootstrap, and CRM integration.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="other" href="https://www.tidalbuildingservices.com/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/tidal-building-services.jpg" alt="Tidal Building Services website thumbnail"></div>
+            <div class="project-content"><h3>Tidal Building Services</h3><p>Logo, theme, colour palette, UI/UX, graphics, GitHub workflow, HTML, CSS, and JavaScript.</p><span class="visit">View website →</span></div>
+          </a>
+
+          <a class="project-card" data-category="shopify" href="https://www.refurby.co.uk/" target="_blank" rel="noopener noreferrer">
+            <div class="thumb"><img src="images/refurby.jpg" alt="Refurby website thumbnail"></div>
+            <div class="project-content"><h3>Refurby</h3><p>Logo, theme, colour palette, UI/UX, graphics, and complete Shopify store build.</p><span class="visit">View website →</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Skills</div>
+          <h2>Design, development, platforms, and growth.</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card"><h3>Design</h3><div class="skill-list"><span class="chip">UX/UI</span><span class="chip">Wireframing</span><span class="chip">Prototyping</span><span class="chip">Brand Systems</span></div></div>
+          <div class="skill-card"><h3>Development</h3><div class="skill-list"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">Bootstrap</span></div></div>
+          <div class="skill-card"><h3>Platforms</h3><div class="skill-list"><span class="chip">Shopify</span><span class="chip">WordPress</span><span class="chip">Magento</span><span class="chip">GitHub</span><span class="chip">CRM</span></div></div>
+          <div class="skill-card"><h3>Marketing</h3><div class="skill-list"><span class="chip">SEO</span><span class="chip">PPC</span><span class="chip">Email</span><span class="chip">LinkedIn</span><span class="chip">WhatsApp</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Process</div>
+          <h2>A simple workflow from insight to launch.</h2>
+        </div>
+        <div class="process-row">
+          <div class="step">Research</div>
+          <div class="step">Wireframe</div>
+          <div class="step">Design</div>
+          <div class="step">Develop</div>
+          <div class="step">Optimise</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <h2>Let’s build something useful.</h2>
+            <p>Available for UX/UI, website design, development, Shopify, WordPress, and digital marketing roles.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-dark" href="mailto:supreetkaur081097@gmail.com">Email Me</a>
+            <a class="btn btn-light" href="tel:+447721688140">Call Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2025 Supreet Kaur. Designed and built for GitHub Pages.</div>
+  </footer>
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        projectCards.forEach((card) => {
+          const category = card.dataset.category;
+          card.classList.toggle('hide', filter !== 'all' && category !== filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
